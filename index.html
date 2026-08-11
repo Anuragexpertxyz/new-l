@@ -90,12 +90,10 @@ color: #fbbf24;
             justify-content: center;
             gap: 10px;
             text-decoration: none;
-
-            /* Continuous Up-Down Motion */
             animation: floatUpDown 1.8s ease-in-out infinite alternate;
         }
 
-        /* Keyframe for button floating motion */
+        /* Continuous Up-Down Motion */
         @keyframes floatUpDown {
             0% {
                 transform: translateY(0px);
@@ -138,7 +136,10 @@ color: #fbbf24;
 
     <!-- Main Container -->
     <div class="main-container">
-        <!DOCTYPE html>
+
+        <!-- Profile Image -->
+        <div class="profile-wrapper">
+                    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -286,9 +287,7 @@ color: #fbbf24;
         .gold-pill {
             background: linear-gradient(180deg, #2a2208 0%, #171203 100%);
             border: 1px solid #fbbf24;
-            <!-- Profile Image -->
-        <div class="profile-wrapper">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Profile" class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Profile" class="profile-img">
         </div>
 
         <!-- Official Badges -->
@@ -353,22 +352,20 @@ color: #fbbf24;
             const btn = document.getElementById('subscribeBtn');
             const statusMsg = document.getElementById('statusMsg');
 
-            // 1. Instant Button Feedback
+            // Instant Button Feedback
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> JOINING NOW...';
             btn.style.opacity = '0.8';
             btn.style.pointerEvents = 'none';
 
-            // 2. Fire Meta Pixel Tracking Events
+            // Fire Meta Pixel Tracking Events
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Subscribe');
                 fbq('track', 'Lead');
             }
 
-            // 3. Fast Redirection Trigger (0.4 Seconds Delay for Pixel Fire)
+            // Redirection
             setTimeout(() => {
                 statusMsg.style.display = 'block';
-                
-                // Telegram Channel Link Paste Karein:
                 window.location.href = "https://t.me/your_telegram_channel_here";
             }, 400);
         }
