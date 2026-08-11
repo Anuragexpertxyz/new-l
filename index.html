@@ -1,150 +1,46 @@
-color: #fbbf24;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
+const check = document.getElementById('humanCheck');
+            check.checked = !check.checked;
         }
 
-        .sub-pills {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 25px;
-        }
+        function handleOneClickSubscribe() {
+            const check = document.getElementById('humanCheck');
+            const btn = document.getElementById('subscribeBtn');
+            const statusMsg = document.getElementById('statusMsg');
 
-        .small-yellow-pill {
-            background: #18181b;
-            border: 1px solid #eab308;
-            color: #fef08a;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .small-yellow-pill::before {
-            content: '•';
-            color: #eab308;
-            font-size: 12px;
-        }
-
-        /* Stats Section */
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid rgba(234, 179, 8, 0.2);
-            border-radius: 12px;
-            padding: 15px 10px;
-            margin-bottom: 25px;
-        }
-
-        .stat-item {
-            flex: 1;
-            text-align: center;
-            border-right: 1px solid #27272a;
-        }
-
-        .stat-item:last-child {
-            border-right: none;
-        }
-
-        .stat-val {
-            font-size: 22px;
-            font-weight: 800;
-            color: #fbbf24;
-            font-family: 'Cinzel', serif;
-        }
-
-        .stat-lbl {
-            font-size: 9px;
-            color: #71717a;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: 2px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Main Golden Button with Under/Up-Down Floating Animation */
-        .btn-join {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #d97706 100%);
-            border: none;
-            border-radius: 30px;
-            color: #000000;
-            font-size: 15px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-            animation: floatUpDown 1.8s ease-in-out infinite alternate;
-        }
-
-        /* Continuous Up-Down Motion */
-        @keyframes floatUpDown {
-            0% {
-                transform: translateY(0px);
-                box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+            // Verification Check
+            if (!check.checked) {
+                alert('Please check the box to confirm age verification.');
+                return;
             }
-            100% {
-                transform: translateY(8px);
-                box-shadow: 0 12px 28px rgba(245, 158, 11, 0.7);
+
+            // 1. Instant Button State Change
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> JOINING VIP CHANNEL...';
+            btn.style.opacity = '0.85';
+            btn.style.pointerEvents = 'none';
+
+            // 2. Fire Meta Pixel Tracking Events
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Subscribe');
+                fbq('track', 'Lead');
             }
+
+            // 3. Smooth Redirection Trigger
+            setTimeout(() => {
+                statusMsg.style.display = 'block';
+                // Apni Telegram Link paste karein:
+                window.location.href = "https://t.me/your_telegram_channel_here";
+            }, 500);
         }
+    </script>
 
-        /* Success Message Box */
-        .success-status {
-            display: none;
-            margin-top: 15px;
-            font-size: 13px;
-            font-weight: 700;
-            color: #22c55e;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid #22c55e;
-            padding: 10px;
-            border-radius: 20px;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Marquee Ticker -->
-    <div class="ticker-wrap">
-        <div class="ticker-content">
-            <div class="ticker-item">91K+ SUBSCRIBERS <span>🔥</span></div>
-            <div class="ticker-item">TRUSTED BY ELITE CLIENTS <span>🔥</span></div>
-            <div class="ticker-item">CRICKET PREDICTIONS <span>🔥</span></div>
-            <div class="ticker-item">91K+ SUBSCRIBERS <span>🔥</span></div>
-            <div class="ticker-item">TRUSTED BY ELITE CLIENTS <span>🔥</span></div>
-            <div class="ticker-item">CRICKET PREDICTIONS <span>🔥</span></div>
-        </div>
-    </div>
-
-    <!-- Main Container -->
-    <div class="main-container">
-
-        <!-- Profile Image -->
-        <div class="profile-wrapper">
-                    <!DOCTYPE html>
+</body>
+</html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NENCY TIPS 2014</title>
+    <title>VIP Cricket Prediction | 100% Match Reports</title>
     <!-- FontAwesome icons & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -176,7 +72,7 @@ color: #fbbf24;
             padding: 10px 0;
             overflow: hidden;
             white-space: nowrap;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .ticker-content {
@@ -204,7 +100,7 @@ color: #fbbf24;
             100% { transform: translateX(-50%); }
         }
 
-        /* Container */
+        /* Main Container */
         .main-container {
             width: 100%;
             max-width: 440px;
@@ -215,10 +111,36 @@ color: #fbbf24;
             text-align: center;
         }
 
-        /* Profile Image */
+        /* Live Indicator Badge */
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(229, 9, 20, 0.2);
+            border: 1px solid #e50914;
+            color: #ff4d4d;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #e50914;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #e50914;
+            animation: blink 1s infinite alternate;
+        }
+
+        /* Profile Image Wrapper */
         .profile-wrapper {
-            width: 110px;
-            height: 110px;
+            width: 105px;
+            height: 105px;
             border-radius: 50%;
             border: 2px solid #eab308;
             padding: 3px;
@@ -238,7 +160,7 @@ color: #fbbf24;
         .top-badges {
             display: flex;
             gap: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -255,15 +177,15 @@ color: #fbbf24;
             letter-spacing: 0.5px;
         }
 
-        /* Main Heading */
+        /* Main Heading & Subtitle */
         .main-title {
             font-family: 'Cinzel', serif;
-            font-size: 32px;
+                    font-size: 30px;
             font-weight: 900;
             color: #ffffff;
             letter-spacing: 1px;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
 
@@ -275,7 +197,7 @@ color: #fbbf24;
             font-weight: 500;
         }
 
-        /* Feature Badges Grid */
+        /* Feature Pills */
         .feature-pills {
             display: flex;
             gap: 8px;
@@ -287,22 +209,200 @@ color: #fbbf24;
         .gold-pill {
             background: linear-gradient(180deg, #2a2208 0%, #171203 100%);
             border: 1px solid #fbbf24;
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Profile" class="profile-img">
+            color: #fbbf24;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .sub-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .small-yellow-pill {
+            background: #18181b;
+            border: 1px solid #eab308;
+            color: #fef08a;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .small-yellow-pill::before {
+            content: '•';
+            color: #eab308;
+            font-size: 12px;
+        }
+
+        /* Stats Block */
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            border-radius: 12px;
+            padding: 14px 10px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid #27272a;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fbbf24;
+            font-family: 'Cinzel', serif;
+        }
+
+        .stat-lbl {
+            font-size: 9px;
+            color: #71717a;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Verification Box */
+        .verify-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #141414;
+            border: 1px solid #333;
+            padding: 10px 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .verify-box input {
+            accent-color: #f59e0b;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .verify-box label {
+            font-size: 11px;
+            color: #d4d4d8;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Floating CTA Button */
+        .btn-join {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #d97706 100%);
+            border: none;
+            border-radius: 30px;
+            color: #000000;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            animation: floatUpDown 1.8s ease-in-out infinite alternate;
+        }
+
+        .success-status {
+            display: none;
+                    margin-top: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            padding: 10px;
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        @keyframes blink {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        @keyframes floatUpDown {
+            0% {
+                transform: translateY(0px);
+                box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+            }
+            100% {
+                transform: translateY(8px);
+                box-shadow: 0 12px 28px rgba(245, 158, 11, 0.7);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Marquee Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker-content">
+            <div class="ticker-item">100K+ SUBSCRIBERS <span>🔥</span></div>
+            <div class="ticker-item">MATCH & TOSS PREDICTIONS <span>🔥</span></div>
+            <div class="ticker-item">ACCURATE SESSION REPORTS <span>🔥</span></div>
+            <div class="ticker-item">100K+ SUBSCRIBERS <span>🔥</span></div>
+            <div class="ticker-item">MATCH & TOSS PREDICTIONS <span>🔥</span></div>
+            <div class="ticker-item">ACCURATE SESSION REPORTS <span>🔥</span></div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Live Badge -->
+        <div class="live-badge">
+            <span class="pulse-dot"></span> Next Match Report Ready
+        </div>
+
+        <!-- Profile Image -->
+        <div class="profile-wrapper">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Profile" class="profile-img">
         </div>
 
         <!-- Official Badges -->
         <div class="top-badges">
             <span class="pill-dark">✦ OFFICIAL CHANNEL</span>
-            <span class="pill-dark">91K+ Subscribers</span>
+            <span class="pill-dark">100K+ SUBSCRIBERS</span>
         </div>
 
         <!-- Title -->
-        <h1 class="main-title">NENCY TIPS 2014</h1>
+        <h1 class="main-title">CRICKET VIP TIPS</h1>
         
-        <!-- Description -->
+        <!-- Subtitle -->
         <p class="subtitle">
-            India Most Trusted Cricket Predictions Channel<br>
-            High Accuracy — Fastest Updates — Elite Clients!
+            India's Most Accurate Cricket Prediction Channel<br>
+            Toss, Match Winner, Session & IPL Reports.
         </p>
 
         <!-- Feature Pills -->
@@ -313,16 +413,15 @@ color: #fbbf24;
 
         <div class="sub-pills">
             <span class="small-yellow-pill">Match Predictions</span>
-            <span class="small-yellow-pill">High Accuracy Tips</span>
-            <span class="small-yellow-pill">Fastest Updates</span>
+            <span class="small-yellow-pill">99% Accuracy</span>
             <span class="small-yellow-pill">IPL • T20 • ODI</span>
-            <span class="small-yellow-pill">Free to Join</span>
+            <span class="small-yellow-pill">Free Entry</span>
         </div>
 
         <!-- Stats Block -->
         <div class="stats-container">
             <div class="stat-item">
-                <div class="stat-val">91K+</div>
+                <div class="stat-val">100K+</div>
                 <div class="stat-lbl">SUBSCRIBERS</div>
             </div>
             <div class="stat-item">
@@ -335,12 +434,18 @@ color: #fbbf24;
             </div>
         </div>
 
-        <!-- 1-Click Action Button with Motion -->
+        <!-- Intent / Verification Checkbox -->
+        <div class="verify-box" onclick="toggleCheckbox()">
+            <input type="checkbox" id="humanCheck" checked>
+            <label for="humanCheck">I am 18+ & want to join Telegram VIP Channel</label>
+        </div>
+
+        <!-- One Click Subscribe Button -->
         <button class="btn-join" id="subscribeBtn" onclick="handleOneClickSubscribe()">
-            <i class="fa-solid fa-paper-plane"></i> JOIN CHANNEL NOW
+            <i class="fa-solid fa-paper-plane"></i> JOIN VIP CHANNEL NOW (1-CLICK)
         </button>
 
-        <!-- Success Redirection Status -->
+        <!-- Redirection Status Box -->
         <div class="success-status" id="statusMsg">
             ⚡ Redirecting to Telegram VIP Channel...
         </div>
@@ -348,28 +453,4 @@ color: #fbbf24;
     </div>
 
     <script>
-        function handleOneClickSubscribe() {
-            const btn = document.getElementById('subscribeBtn');
-            const statusMsg = document.getElementById('statusMsg');
-
-            // Instant Button Feedback
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> JOINING NOW...';
-            btn.style.opacity = '0.8';
-            btn.style.pointerEvents = 'none';
-
-            // Fire Meta Pixel Tracking Events
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Subscribe');
-                fbq('track', 'Lead');
-            }
-
-            // Redirection
-            setTimeout(() => {
-                statusMsg.style.display = 'block';
-                window.location.href = "https://t.me/your_telegram_channel_here";
-            }, 400);
-        }
-    </script>
-
-</body>
-</html>
+        function toggleCheckbox() {
