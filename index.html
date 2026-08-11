@@ -1,1 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NENCY TIPS 2014</title>
+    <!-- FontAwesome icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-bottom: 30px;
+        }
+
+        /* Top Ticker Marquee */
+        .ticker-wrap {
+            width: 100%;
+            background: #111111;
+            border-bottom: 1px solid #222;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 25px;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: marquee 18s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #cca43b;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .ticker-item span {
+            color: #ff9900;
+            margin: 0 8px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Container */
+        .main-container {
+            width: 100%;
+            max-width: 440px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Profile Image */
+        .profile-wrapper {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 2px solid #eab308;
+            padding: 3px;
+            margin-bottom: 15px;
+            background: radial-gradient(circle, #eab308 0%, #000 70%);
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Top Badges (Official Channel & Subscribers) */
+        .top-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pill-dark {
+            background: rgba(22, 22, 22, 0.9);
+            border: 1px solid #d97706;
+            color: #f59e0b;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Heading */
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: #a1a1aa;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        /* Feature Badges Grid */
+        .feature-pills {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+
+        .gold-pill {
+            background: linear-gradient(180deg, #2a2208 0%, #171203 100%);
+          border: 1px solid #fbbf24;
+            color: #fbbf24;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .sub-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .small-yellow-pill {
+            background: #18181b;
+            border: 1px solid #eab308;
+            color: #fef08a;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .small-yellow-pill::before {
+            content: '•';
+            color: #eab308;
+            font-size: 12px;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            border-radius: 12px;
+            padding: 15px 10px;
+            margin-bottom: 25px;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            border-right: 1px solid #27272a;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-val {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fbbf24;
+            font-family: 'Cinzel', serif;
+        }
+
+        .stat-lbl {
+            font-size: 9px;
+            color: #71717a;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Golden Button */
+        .btn-join {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #d97706 100%);
+            border: none;
+            border-radius: 30px;
+            color: #000000;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-join:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+        }
+
+        .btn-join:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Marquee Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker-content">
+            <div class="ticker-item">91K+ SUBSCRIBERS <span>🔥</span></div>
+            <div class="ticker-item">TRUSTED BY ELITE CLIENTS <span>🔥</span></div>
+            <div class="ticker-item">CRICKET PREDICTIONS <span>🔥</span></div>
+            <div class="ticker-item">91K+ SUBSCRIBERS <span>🔥</span></div>
+            <div class="ticker-item">TRUSTED BY ELITE CLIENTS <span>🔥</span></div>
+            <div class="ticker-item">CRICKET PREDICTIONS <span>🔥</span></div>
+        </div>
+    </div>
+
+    <!-- Main Card Body -->
+    <div class="main-container">
+
+        <!-- Profile Image -->
+        <div class="profile-wrapper">
+            <!-- Profile Photo URL paste karein -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Profile" class="profile-img">
+        </div>
+
+        <!-- Official Badges -->
+        <div class="top-badges">
+            <span class="pill-dark">✦ OFFICIAL CHANNEL</span>
+            <span class="pill-dark">91K+ Subscribers</span>
+        </div>
+
+        <!-- Channel Title -->
+        <h1 class="main-title">NENCY TIPS 2014</h1>
+        
+        <!-- Description -->
+        <p class="subtitle">
+          India Most Trusted Cricket Predictions Channel<br>
+            High Accuracy — Fastest Updates — Elite Clients!
+        </p>
+
+        <!-- Feature Pills -->
+        <div class="feature-pills">
+            <span class="gold-pill">✦ INDIA BASED ✦</span>
+            <span class="gold-pill">PREMIUM SYNDICATE ✦</span>
+        </div>
+
+        <div class="sub-pills">
+            <span class="small-yellow-pill">Match Predictions</span>
+            <span class="small-yellow-pill">High Accuracy Tips</span>
+            <span class="small-yellow-pill">Fastest Updates</span>
+            <span class="small-yellow-pill">IPL • T20 • ODI</span>
+            <span class="small-yellow-pill">Free to Join</span>
+        </div>
+
+        <!-- Statistics Block -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-val">91K+</div>
+                <div class="stat-lbl">SUBSCRIBERS</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val">98%</div>
+                <div class="stat-lbl">ACCURACY</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val">24/7</div>
+                <div class="stat-lbl">ACTIVE</div>
+            </div>
+        </div>
+
+        <!-- 1-Click Action Button -->
+        <button class="btn-join" onclick="handleRedirect()">
+            <i class="fa-solid fa-paper-plane"></i> JOIN CHANNEL NOW
+        </button>
+
+    </div>
+
+    <script>
+        function handleRedirect() {
+            // 1. Meta Pixel Subscribe Event Fire (If active)
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Subscribe');
+                fbq('track', 'Lead');
+            }
+
+            // 2. Telegram Redirection Link
+            window.location.href = "https://t.me/your_telegram_channel_here";
+        }
+    </script>
+
+</body>
+</html>
